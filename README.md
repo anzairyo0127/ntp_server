@@ -7,14 +7,14 @@
 
 今回はそのNTPサーバーとはなにかということを簡単にお話したいと思います。
 
+![Test Image 3](imgs/pc_ntp.png)
+
 ## NTPサーバーとはなんなのか
 一般的にサーバーとは機器の役割のことをあわらします。NTPサーバーとはNetwork Time Protcolサーバーの略です。役割としては時刻の問い合わせを受けてけており、問い合わせ(Request)を受けるとそのNTPサーバーが知っている現在時刻を返信(Response)します。
 
 パソコンは設定されたNTPサーバーに定期的に問い合わせを行い、NTPサーバーから受け取った返信をもとに時刻設定を行います。
 
 その定期的間隔はWindows10の初期設定だと１週間となっています。
-
-参考:https://www.billionwallet.com/windows10/timeinterval.html
 
 ## なぜNTPサーバーは正確な時刻を知っているか
 NTPサーバーは時刻の問い合わせを受け付けるとその正確な時刻を返信しますが、では、なぜNTPサーバーは正確な時刻を知っているでしょうか。
@@ -23,9 +23,19 @@ NTPサーバーは時刻の問い合わせを受け付けるとその正確な�
 
 NTPサーバーはstratumという階層構造となっており、皆さんのパソコンが問い合わせているのは末端に当たるものとなるのです。
 
+![Test Image 3](imgs/stratums.png)
+
 NTPサーバーには今自分がどの階層にいるかを「stratum（数字）」と表しており、最上位のものが0で、最下層が15まで存在できます。16以降は設定できないようです。
 
 時刻の源泉たるstratum0は世界に複数存在するようですが、その正体はGPS時計あるいは原子時計というものを装備しています。
 
 stratum0はその時刻のデータを下流に流すことで世界中のコンピューターが正確な時刻を刻んでいるのです。
 
+## 参考URL
+https://www.billionwallet.com/windows10/timeinterval.html
+
+https://ja.wikipedia.org/wiki/Network_Time_Protocol
+
+https://www.idcf.jp/words/ntp.html
+
+https://kuzunoha-ne.hateblo.jp/entry/2018/05/07/113500
